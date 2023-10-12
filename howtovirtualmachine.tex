@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{setspace}
+\usepackage{lipsum}
+\usepackage{hyperref}
+
+\newcommand{\problem}[2]{\noindent\llap{#1.\space}#2}
+
+\onehalfspacing
+
+\makeatletter
+\def\idnumber#1{\def\@idnumber{#1}}
+\def\classname#1{\def\@classname{#1}}
+\def\makeheader{%
+\par\noindent{\large\begin{tabular}{@{}l@{}}
+\@author \\
+\@idnumber \\
+\@classname
+\end{tabular}}\par\nobreak\vskip20pt
+\noindent{\bfseries\LARGE\@title\par}\bigskip
+}
+\makeatother
+
+\author{Daan Breur}
+\idnumber{uwu}
+\classname{How to Hack - Beter dan kut security essentials}
+\title{Making Virtual Machines}
+
+\begin{document}
+\makeheader
+\problem{Pre-requirements}
+Check of AMD-V of Intel VT-x aanstaan op je computer, zoek op op internet hoe je dit doet en hoe je het aan kan zetten.\\
+
+\problem{A}
+Installeer vmware workstation pro. \\
+Windows: \url{https://www.vmware.com/go/getworkstation-win} \\
+Enable enhanced keyboard drivers in de installer voor optimale shit. \\
+Bij de stap license gebruik je deze license: ``4Y09U-AJK97-089Z0-A3054-83KLA''\\
+
+\problem{B}
+Download een installer iso van de linux versie waarmee je wilt gaan hacken.\\
+Ik raad kalilinux netinstaller 64bit aan. Als je deze installer hebt gedownload.\\
+\url{https://cdimage.kali.org/kali-2023.3/kali-linux-2023.3-installer-netinst-amd64.iso}\\
+
+\problem{C}
+1. Create virtual machines.\\
+2. Selecteer Typical.\\
+3. Installer disc selecteren welke je net had gedownload.\\
+4. Guest: Linux, Version: Ubuntu 64bit.\\
+5. Geef naam en zet locatie voor op je pc (zorg genoeg ruimte uwu).\\
+6. Disk size, ik raad 120GB aan als het kan, maar minimaal 60GB. Disk on split files.\\
+7. Customize hardware $\rightarrow$ Memory: minimaal 6GB recommended 8GB, Processors cores rond de 4 als je daar genoeg voor hebt meer is beter. $\rightarrow$ close.
+8. Finish\\
+
+\newpage
+\problem{D}
+1. Power-on virtual machines\\
+2. Graphical install\\
+3. Volg de stappen om kali te installeren (meeste defaults kloppen), bij domeinnaam laat je hem leeg. Voor Desktop raad ik xfce aan maar moet je doen wat je zelf fijn vind. Extra tools zou ik alle opties aanzetten.\\
+Partitioning alles op de een drive.\\
+Bij de vraag welke displaymanager, lightdm\\
+Bij de vraag of je grub wilt selecteer je yes.\\
+4. Als hij gereboot is, druk in in de onderste ding op ``Finished installing''.\\
+
+\problem{E}
+Success ofzo?!\\
+
+\end{document}
