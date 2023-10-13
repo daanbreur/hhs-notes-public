@@ -1,0 +1,25 @@
+name: Build latex files 
+on:
+  push:
+    paths:
+      - **/*.tex 
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: *.tex
+          post_compile: "latexmk -c"
+      - name: Push PDF files
+        env: 
+          CI_COMMIT_MESSAGE: Build Latest LaTex Artifacts 
+          CI_COMMIT_AUTHOR: LaTex Bot
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push
