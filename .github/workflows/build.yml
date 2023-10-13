@@ -2,7 +2,7 @@ name: Build latex files
 on:
   push:
     paths:
-      - **/*.tex 
+      - '**.tex'
 jobs:
   build_latex:
     runs-on: ubuntu-latest
